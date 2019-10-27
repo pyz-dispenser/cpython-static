@@ -1,0 +1,22 @@
+debian_task:
+  container:
+    image: debian
+  env:
+    PYTHON_TAG: 3.8
+  install_script:
+    - apt-get update -y
+    - apt-get build-dep -y python3.7
+    - apt-get install -y git
+  checkout_script:
+    - git clone --depth 1 --branch $PYTHON_TAG https://github.com/python/cpython.git
+  build_script: |
+    cd cpython
+    echo "*static*" > /tmp/setup
+    cat Modules/Setup >> /tmp/setup
+    cp /tmp/setup Modules/Setup
+    ./configure "LDFLAGS=-static -static-libgcc" "CPPFLAGS=-static"
+    make
+  binary_artifacts:
+    path: cpython/python
+  library_artifacts:
+    path: cpython/libpython*.a
