@@ -11,7 +11,7 @@ debian_task:
     cd cpython
     # Prepend *static* to file
     echo "*static*" > /tmp/setup
-    cat Modules/Setup >> /tmp/setup
+    cat Modules/Setup* >> /tmp/setup
     cp /tmp/setup Modules/Setup
     # Configure
     ./configure "LDFLAGS=-static -static-libgcc" "CPPFLAGS=-static" --disable-shared
