@@ -1,4 +1,5 @@
-FROM debian:9.11
+# Check https://hub.docker.com/_/debian?tab=tags for the latest
+FROM debian:stable-20191014
 
 RUN apt-get update -y
 
