@@ -17,6 +17,8 @@ debian_task:
     cp /tmp/setup Modules/Setup
     ./configure "LDFLAGS=-static -static-libgcc" "CPPFLAGS=-static"
     make
+  test_script:
+    - ./cpython/python test-imports.py
   binary_artifacts:
     path: cpython/python
   library_artifacts:
