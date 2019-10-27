@@ -2,10 +2,11 @@ debian_task:
   container:
     dockerfile: debian.dockerfile
   env:
-    # TODO: Matrix
-    PYTHON_TAG: 3.8
+    matrix:
+      - TAG: v3.8.0
+      - TAG: v3.7.5
   checkout_script:
-    - git clone --depth 1 --branch $PYTHON_TAG https://github.com/python/cpython.git
+    - git clone --depth 1 --branch $TAG https://github.com/python/cpython.git
   build_script: |
     cd cpython
     # Prepend *static* to file
