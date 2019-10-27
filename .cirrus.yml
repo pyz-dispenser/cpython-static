@@ -17,6 +17,9 @@ debian_task:
     # Build
     make "LDFLAGS=-static" "LINKFORSHARED= "
   test_script:
+    # The python:3.8 container says:
+    # ['__main__', '_abc', '_codecs', '_frozen_importlib', '_frozen_importlib_external', '_imp', '_signal', '_stat', '_thread', '_warnings', '_weakref', 'builtins', 'io', 'marshal', 'posix', 'sys', 'time', 'zipimport']
+    - ./cpython/python -c "print(sorted(m.__name__ for m in __import__('sys').modules.values() if not hasattr(m, '__file__')))"
     - ./cpython/python test-imports.py
   binary_artifacts:
     path: cpython/python
