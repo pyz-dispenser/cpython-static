@@ -5,7 +5,8 @@ debian_task:
     PYTHON_TAG: 3.8
   install_script:
     - apt-get update -y
-    - apt-get build-dep -y python3.7
+    # - apt-get build-dep -y python3.7
+    - apt-get install -y build-essential dpkg-dev
     - apt-get install -y git
   checkout_script:
     - git clone --depth 1 --branch $PYTHON_TAG https://github.com/python/cpython.git
