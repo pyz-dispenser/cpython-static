@@ -4,7 +4,9 @@ import struct
 import subprocess
 
 # Direct native modules
+import binascii
 import mmap
+import math
 import parser
 import readline
 import resource
@@ -27,7 +29,7 @@ import opcode
 import queue
 # import sqlite3
 # import ssl
-import tkinter
+# import tkinter
 import uuid
 
 import asyncio  # At the end because it's complex and uses lots of stuff

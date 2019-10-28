@@ -8,15 +8,12 @@ debian_task:
   checkout_script:
     - git clone --depth 1 --branch $TAG https://github.com/python/cpython.git
   build_script: |
+    cp Setup.local cpython/Modules/Setup.local
     cd cpython
-    # Prepend *static* to file
-    echo "*static*" > /tmp/setup
-    cat Modules/Setup* >> /tmp/setup
-    cp /tmp/setup Modules/Setup
     # Configure
     ./configure "LDFLAGS=-static -static-libgcc" "CPPFLAGS=-static" --disable-shared
     # Build
-    make "LDFLAGS=-static" "LINKFORSHARED= "
+    make python
   test_script:
     - ./cpython/python -c "print(__import__('sys').builtin_module_names)"
     - ./cpython/python test-imports.py
