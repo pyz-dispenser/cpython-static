@@ -17,6 +17,7 @@ debian_task:
   test_script:
     - ./cpython/python -c "print(__import__('sys').builtin_module_names)"
     - ./cpython/python test-imports.py
+    - cd cpython && ./python Tools/scripts/run_tests.py
   binary_artifacts:
     path: cpython/python
   library_artifacts:
