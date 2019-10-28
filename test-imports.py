@@ -1,5 +1,6 @@
 # Use a built-in module
 import socket
+import struct
 import subprocess
 
 # Direct native modules
