@@ -11,7 +11,7 @@ debian_task:
     cp Setup.local cpython/Modules/Setup.local
     cd cpython
     # Configure
-    ./configure "LDFLAGS=-static -static-libgcc" "CPPFLAGS=-static" --disable-shared
+    ./configure "LDFLAGS=-static -static-libgcc" "CPPFLAGS=-static" --disable-shared --enable-optimizations
     # Build
     make python
   test_script:
