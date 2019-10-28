@@ -131,3 +131,5 @@ _codecs_tw cjkcodecs/_codecs_tw.c
 # These are not mentioned in upstream Setup
 _bz2 _bz2module.c -lbz2
 _lzma _lzmamodule.c -llzma
+
+_cytpes _ctypes/_ctypes.c _ctypes/callbacks.c _ctypes/callproc.c _ctypes/stgdict.c _ctypes/cfield.c -ldl
