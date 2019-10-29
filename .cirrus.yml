@@ -37,6 +37,6 @@ modinfo_task:
     # Build
     make python platform
   gen_script:
-    -  _PYTHON_PROJECT_BASE=./cpython ./cpython/python gen-info.py > mods.json
+    -  _PYTHON_PROJECT_BASE=$PWD/cpython ./cpython/python gen-info.py > mods.json
   modinfo_artifacts:
     path: mods.json
