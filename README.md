@@ -18,8 +18,8 @@ Regenerating Setup.local
 `Setup.local` is the specific configuration for CI's build environment. It can vary, depending on what CPython's `setup.py` detects.
 
 To rebuild it for the repo:
-1. Pull `mods.json` from the modinfo job
-2. Run `python3 gen-setup.py < mods.json > Setup.local`
+1. Pull `mods.setup` from the modinfo job and copy it to `Setup.local`
+2. Strip `/tmp/cirrus-ci-build/cpython/` from the file
 3. Commit the new file
 
 If you are doing your own build, you'll need to run `gen-info.py` yourself. (See the docstring in that script.)

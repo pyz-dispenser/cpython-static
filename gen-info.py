@@ -71,6 +71,7 @@ class ext_info(Command):
         # This right here is the heart of what we're doing.
         # Everything else is just setup and mocking to get this info to this point.
         print(json.dumps([
+            # FIXME: Strip SRC_DIR prefix
             vars(ext)
             for ext in self.distribution.ext_modules
         ], indent=2))
