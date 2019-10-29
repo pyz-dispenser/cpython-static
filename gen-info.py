@@ -1,7 +1,17 @@
-# Also, distutils.extension.read_setup_file() can read Modules/Setup
-# Although I'm not sure that's strictly needed; the default seems to be good for
-# core, we just need to extend it.
+"""
+Gets module configuration from CPython's setup.py
 
+Set your CPython source in the envvar _PYTHON_PROJECT_BASE
+
+You have to run `make platform` (or the inner command) so that build
+information is available to setup.py.
+
+You probably need to use the same version of python as what you're building to
+run this.
+
+Prints a big JSON list to stdout.
+"""
+# This whole thing is cursed and will break if upstream changes too much.
 import sys
 import os
 
