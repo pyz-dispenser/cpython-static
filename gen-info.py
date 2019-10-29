@@ -1,27 +1,37 @@
-# Gen a config file with these contents
-# See distutils.dist:...find_config_files() for where to stick the config file
-"""
-[global]
-command_packages=mypkg.distcommands
-"""
-
-# File must mypkg.distcommands.<command>, class is <command>(distutils.core.Command)
-
 # Also, distutils.extension.read_setup_file() can read Modules/Setup
 # Although I'm not sure that's strictly needed; the default seems to be good for
 # core, we just need to extend it.
 
 import sys
 import os
+
+SRC_DIR = '/home/astraluma/src/cpython'
+sys._home = os.environ['_PYTHON_PROJECT_BASE'] = str(SRC_DIR)
+
 import json
+from pathlib import Path
 from distutils.core import Command
 import distutils.command # noqa
 
-SRC_DIR = '/home/astraluma/src/cpython'
+SRC_DIR = Path(SRC_DIR)
 
 # Mock some modules so our command is discoverable
 sys.modules['distutils.command.ext_info'] = sys.modules['__main__']
 sys.modules['distutils.command'].ext_info = sys.modules['__main__']
+
+# Override this so that the write config options are used
+try:
+    scd_filename = next(SRC_DIR.glob('build/lib.*/_sysconfigdata_*.py'))
+except StopIteration:
+    print("sysconfigdata not found", file=sys.stderr)
+else:
+    print(f"Loading {scd_filename}", file=sys.stderr)
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(scd_filename.stem, scd_filename)
+    scd_mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(scd_mod)
+    sys.modules[scd_mod.__name__] = scd_mod
+    os.environ['_PYTHON_SYSCONFIGDATA_NAME'] = scd_mod.__name__
 
 
 # Define our command
@@ -30,10 +40,20 @@ class ext_info(Command):
     user_options = []
 
     def initialize_options(self):
-        pass
+        self.extensions = []
 
     def finalize_options(self):
-        pass
+        self.extensions = self.distribution.ext_modules[:]
+        # Mock out enough of setup.py's build_ext command to get the extension modules out
+        buildext = globals()['PyBuildExt'](self.distribution)  # Class from setup.py
+        buildext.build_extensions = lambda: None
+        buildext.initialize_options()
+        buildext.finalize_options()
+        buildext.run()
+        import sysconfig
+        buildext.srcdir = sysconfig.get_config_var('srcdir')
+        buildext.detect_modules()
+        self.extensions += buildext.extensions
 
     def run(self):
         print(json.dumps([
@@ -45,5 +65,4 @@ class ext_info(Command):
 # Run setup.py
 os.chdir(SRC_DIR)
 sys.argv = ['setup.py', '--quiet', 'ext_info']
-with open('setup.py', 'rt') as f:
-    exec(f.read())
+exec(Path('setup.py').read_text())
