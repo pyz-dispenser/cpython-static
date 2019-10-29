@@ -16,7 +16,7 @@ _bisect _bisectmodule.c # Bisection algorithms
 _heapq _heapqmodule.c   # Heap queue algorithm
 _asyncio _asynciomodule.c  # Fast asyncio Future
 _json -I$(srcdir)/Include/internal -DPy_BUILD_CORE_BUILTIN _json.c  # _json speedups
-_statistics _statisticsmodule.c # statistics accelerator
+#_statistics _statisticsmodule.c # statistics accelerator
 
 unicodedata unicodedata.c    # static Unicode character database
 
@@ -132,6 +132,6 @@ _codecs_tw cjkcodecs/_codecs_tw.c
 _bz2 _bz2module.c -lbz2
 _lzma _lzmamodule.c -llzma
 
-_cytpes _ctypes/_ctypes.c _ctypes/callbacks.c _ctypes/callproc.c _ctypes/stgdict.c _ctypes/cfield.c -ldl
+#_cytpes _ctypes/_ctypes.c _ctypes/callbacks.c _ctypes/callproc.c _ctypes/stgdict.c _ctypes/cfield.c -ldl
 
 # Blank Line mandatory
