@@ -28,7 +28,6 @@ modinfo_task:
     dockerfile: debian.dockerfile
   env:
     - TAG: v3.8.0
-    - _PYTHON_PROJECT_BASE: ./cpython
   checkout_script:
     - git clone --depth 1 --branch $TAG https://github.com/python/cpython.git
   build_script: |
@@ -38,6 +37,6 @@ modinfo_task:
     # Build
     make python platform
   gen_script:
-    -  ./cpython/python gen-info.py > mods.json
+    -  _PYTHON_PROJECT_BASE=./cpython ./cpython/python gen-info.py > mods.json
   modinfo_artifacts:
     path: mods.json
