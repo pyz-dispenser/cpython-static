@@ -6,8 +6,8 @@ import sys
 import os
 
 # This has to be as soon as possible, sysconfig uses it at the global level
-SRC_DIR = '/home/astraluma/src/cpython'
-sys._home = os.environ['_PYTHON_PROJECT_BASE'] = str(SRC_DIR)
+assert '_PYTHON_PROJECT_BASE' in os.environ
+sys._home = SRC_DIR = os.environ['_PYTHON_PROJECT_BASE']
 
 import json
 from pathlib import Path

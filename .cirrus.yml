@@ -22,3 +22,22 @@ debian_task:
     path: cpython/python
   library_artifacts:
     path: cpython/libpython*.a
+
+modinfo_task:
+  container:
+    dockerfile: debian.dockerfile
+  env:
+    - TAG: v3.8.0
+    - _PYTHON_PROJECT_BASE: ./cpython
+  checkout_script:
+    - git clone --depth 1 --branch $TAG https://github.com/python/cpython.git
+  build_script: |
+    cd cpython
+    # Configure
+    ./configure "LDFLAGS=-static -static-libgcc" "CPPFLAGS=-static" --disable-shared --enable-optimizations
+    # Build
+    make python platform
+  gen_script:
+    -  ./cpython/python gen-info.py > mods.json
+  modinfo_artifacts:
+    path: mods.json
