@@ -13,7 +13,7 @@ debian_task:
     # Configure
     ./configure "LDFLAGS=-static -static-libgcc" "CPPFLAGS=-static" --disable-shared --enable-optimizations
     # Build
-    make python
+    make python platform
   test_script:
     - ./cpython/python -c "print(__import__('sys').builtin_module_names)"
     - ./cpython/python test-imports.py
