@@ -36,8 +36,10 @@ modinfo_task:
     ./configure "LDFLAGS=-static -static-libgcc" "CPPFLAGS=-static" --disable-shared --enable-optimizations
     # Build
     make python platform
-  gen_script:
+  json_script:
     -  _PYTHON_PROJECT_BASE=$PWD/cpython ./cpython/python gen-info.py > mods.json
+  setup_script:
+    - apt-get install -y python3
     - python3 gen-setup.py < mods.json > mods.setup
   modinfo_artifacts:
     path: mods.*
