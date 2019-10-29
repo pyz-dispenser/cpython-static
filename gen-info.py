@@ -5,6 +5,7 @@
 import sys
 import os
 
+# This has to be as soon as possible, sysconfig uses it at the global level
 SRC_DIR = '/home/astraluma/src/cpython'
 sys._home = os.environ['_PYTHON_PROJECT_BASE'] = str(SRC_DIR)
 
@@ -19,7 +20,8 @@ SRC_DIR = Path(SRC_DIR)
 sys.modules['distutils.command.ext_info'] = sys.modules['__main__']
 sys.modules['distutils.command'].ext_info = sys.modules['__main__']
 
-# Override this so that the write config options are used
+# Grab the build info, if available
+# FIXME: This is generated after the python build, can we mock it from the Makefile?
 try:
     scd_filename = next(SRC_DIR.glob('build/lib.*/_sysconfigdata_*.py'))
 except StopIteration:
@@ -44,7 +46,7 @@ class ext_info(Command):
 
     def finalize_options(self):
         self.extensions = self.distribution.ext_modules[:]
-        # Mock out enough of setup.py's build_ext command to get the extension modules out
+        # Mock out enough of setup.py's build_ext command to get the extension info
         buildext = globals()['PyBuildExt'](self.distribution)  # Class from setup.py
         buildext.build_extensions = lambda: None
         buildext.initialize_options()
@@ -56,10 +58,12 @@ class ext_info(Command):
         self.extensions += buildext.extensions
 
     def run(self):
+        # This right here is the heart of what we're doing.
+        # Everything else is just setup and mocking to get this info to this point.
         print(json.dumps([
             vars(ext)
             for ext in self.distribution.ext_modules
-        ]))
+        ], indent=2))
 
 
 # Run setup.py
