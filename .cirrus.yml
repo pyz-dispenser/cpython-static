@@ -38,5 +38,6 @@ modinfo_task:
     make python platform
   gen_script:
     -  _PYTHON_PROJECT_BASE=$PWD/cpython ./cpython/python gen-info.py > mods.json
+    - python3 gen-setup.py < mods.json > mods.setup
   modinfo_artifacts:
-    path: mods.json
+    path: mods.*
