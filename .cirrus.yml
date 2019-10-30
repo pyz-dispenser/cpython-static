@@ -25,8 +25,8 @@ debian_task:
     path: cpython/libpython*.a
   stdlib_artifacts:
     path: stdlib.zip
-  # fulltest_script:
-  #   - cd cpython && ./python Tools/scripts/run_tests.py
+  fulltest_script:
+    - cd cpython && ./python Tools/scripts/run_tests.py
 
 modinfo_task:
   container:
