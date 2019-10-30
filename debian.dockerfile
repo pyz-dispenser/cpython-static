@@ -12,5 +12,4 @@ RUN apt-get install -y libreadline-dev libreadline-dev libncursesw5-dev>=5.3 \
     libffi-dev>=3.0.5
     # libbluetooth-dev libgpm2
 
-
 RUN apt-get install -y git
