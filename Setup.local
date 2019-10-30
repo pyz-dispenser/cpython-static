@@ -4,8 +4,8 @@
 _struct _struct.c
 array arraymodule.c
 _contextvars _contextvarsmodule.c
-math mathmodule.c -lm
-cmath cmathmodule.c -lm
+math mathmodule.c _math.c -lm
+cmath cmathmodule.c _math.c -lm
 time timemodule.c
 _datetime _datetimemodule.c -lm
 _random _randommodule.c
@@ -29,13 +29,12 @@ select selectmodule.c
 parser parsermodule.c
 mmap mmapmodule.c
 syslog syslogmodule.c
-_xxsubinterpreters _xxsubinterpretersmodule.c
 audioop audioop.c -lm
 _csv _csv.c
 _posixsubprocess _posixsubprocess.c
-readline readline.c -lreadline -L/usr/lib/termcap -lreadline -ltinfo
-_curses _cursesmodule.c -I/usr/include/ncursesw -DHAVE_NCURSESW -lncursesw -lncursesw -ltinfo -ldl
-_curses_panel _curses_panel.c -I/usr/include/ncursesw -DHAVE_NCURSESW -lpanelw -lncursesw -lpanelw -lncursesw -ltinfo -ldl -lncursesw -ltinfo -ldl
+readline readline.c -lreadline -L/usr/lib/termcap -lreadline -ltinfo -ltinfo
+_curses _cursesmodule.c -I/usr/include/ncursesw -DHAVE_NCURSESW -lncursesw -lncursesw -ltinfo -ldl -ltinfo
+_curses_panel _curses_panel.c -I/usr/include/ncursesw -DHAVE_NCURSESW -lpanelw -lncursesw -lpanelw -lncursesw -ltinfo -ldl -ltinfo -lncursesw -ltinfo -ldl -lncursesw -ltinfo -ldl -ltinfo
 _crypt _cryptmodule.c -lcrypt
 _socket socketmodule.c
 _ssl _ssl.c -lssl -lcrypto
@@ -70,7 +69,6 @@ _ctypes _ctypes/_ctypes.c _ctypes/callbacks.c _ctypes/callproc.c _ctypes/stgdict
 _ctypes_test _ctypes/_ctypes_test.c -lm
 _posixshmem _multiprocessing/posixshmem.c -IModules/_multiprocessing -lrt
 _multiprocessing _multiprocessing/multiprocessing.c -IModules/_multiprocessing
-_tkinter _tkinter.c tkappinit.c -I/usr/include/tcl8.6 -I/usr/X11/include -DWITH_APPINIT -DWITH_BLT -lBLT -ltk8.6 -ltcl8.6 -lX11 -L/usr/X11/lib -ltk8.6 -ltkstub8.6 -lXft -lfontconfig -lfreetype -lfontconfig -lX11 -lXss -lXext -ltcl8.6 -ltclstub8.6 -ldl -lz -lpthread -lm -lz -ltcl8.6 -ltclstub8.6 -ldl -lz -lpthread -lm -lz -lX11 -lpthread -lxcb -lXau -lXdmcp
 _uuid _uuidmodule.c -I/usr/include/uuid -luuid -luuid
 # Blank line required
 
