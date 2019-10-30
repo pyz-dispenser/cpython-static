@@ -4,7 +4,7 @@ debian_task:
   env:
     matrix:
       - TAG: v3.8.0
-      - TAG: v3.7.5
+      # - TAG: v3.7.5
   checkout_script:
     - git clone --depth 1 --branch $TAG https://github.com/python/cpython.git
   build_script: |
