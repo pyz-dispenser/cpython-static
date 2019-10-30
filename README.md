@@ -10,7 +10,18 @@ Provided artifacts:
 
 Everything native should be compiled in.
 
-TODO: Artifact URLs
+Artifacts
+=========
+
+Linux AMD64
+-----------
+
+* `python`: https://api.cirrus-ci.com/v1/artifact/github/pyz-dispenser/cpython-static/debian/binary/cpython/python
+* `libpython.a` (for linking into your own app): https://api.cirrus-ci.com/v1/artifact/github/pyz-dispenser/cpython-static/debian/library/cpython/libpython3.8.a
+  (NOTE: All the required linker flags are not yet published)
+* `stdlib.zip`: https://api.cirrus-ci.com/v1/artifact/github/pyz-dispenser/cpython-static/debian/stdlib/stdlib.zip
+
+
 
 Regenerating Setup.local
 ========================
