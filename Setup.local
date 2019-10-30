@@ -32,7 +32,7 @@ syslog syslogmodule.c
 audioop audioop.c -lm
 _csv _csv.c
 _posixsubprocess _posixsubprocess.c
-_testcapi _testcapimodule.c
+_testcapi _testcapimodule.c -UPy_BUILD_CORE -UPy_BUILD_CORE_BUILTIN
 _testinternalcapi _testinternalcapi.c -DPy_BUILD_CORE_MODULE
 _testbuffer _testbuffer.c
 _testimportmultiple _testimportmultiple.c

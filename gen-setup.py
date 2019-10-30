@@ -89,6 +89,8 @@ def gen_args(mod):
         if val in (None, 1, "1")
     )
     yield from (f'-U{i}' for i in mod['undef_macros'])
+    if mod['name'] == '_testcapi':
+        yield from ('-UPy_BUILD_CORE', '-UPy_BUILD_CORE_BUILTIN')
     yield from (
         i if i[:2] in ('-D', '-W') else f'-C{i}'
         for i in mod['extra_compile_args']
