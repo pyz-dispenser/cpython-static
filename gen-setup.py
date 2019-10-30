@@ -13,8 +13,8 @@ import sys
 # These modules are always omitted
 BLACKLIST = {
     # Test modules
-    '_testcapi', '_testinternalcapi', '_testbuffer', '_testimportmultiple',
-    '_testmultiphase', '_xxtestfuzz',
+    # '_testcapi', '_testinternalcapi', '_testbuffer', '_testimportmultiple',
+    # '_testmultiphase', '_xxtestfuzz',
     # Demos
     'xxlimited',
     # Not sure what this is or why it's in the source tree

@@ -32,9 +32,15 @@ syslog syslogmodule.c
 audioop audioop.c -lm
 _csv _csv.c
 _posixsubprocess _posixsubprocess.c
+_testcapi _testcapimodule.c
+_testinternalcapi _testinternalcapi.c -DPy_BUILD_CORE_MODULE
+_testbuffer _testbuffer.c
+_testimportmultiple _testimportmultiple.c
+_testmultiphase _testmultiphase.c
+_xxtestfuzz _xxtestfuzz/_xxtestfuzz.c _xxtestfuzz/fuzzer.c
 readline readline.c -lreadline -L/usr/lib/termcap -lreadline -ltinfo -ltinfo
 _curses _cursesmodule.c -I/usr/include/ncursesw -DHAVE_NCURSESW -lncursesw -lncursesw -ltinfo -ldl -ltinfo
-_curses_panel _curses_panel.c -I/usr/include/ncursesw -DHAVE_NCURSESW -lpanelw -lncursesw -lpanelw -lncursesw -ltinfo -ldl -ltinfo -lncursesw -ltinfo -ldl -lncursesw -ltinfo -ldl -ltinfo
+_curses_panel _curses_panel.c -I/usr/include/ncursesw -DHAVE_NCURSESW -lpanelw -lncursesw -lpanelw -lncursesw -ltinfo -ldl -lncursesw -ltinfo -ldl -ltinfo -lncursesw -ltinfo -ldl -ltinfo
 _crypt _cryptmodule.c -lcrypt
 _socket socketmodule.c
 _ssl _ssl.c -lssl -lcrypto
