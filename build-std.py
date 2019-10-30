@@ -16,6 +16,6 @@ with zipfile.ZipFile('stdlib.zip', 'w') as dest:
     for libdir in LIB_DIRS:
         for fname in (libdir).glob("**/*.py"):
             # The test suite is about half the Lib code
-            if str(fname.relative_to(libdir)).startswith('test/'):
+            if 'test' in fname.parts:
                 continue
             dest.write(fname, fname.relative_to(libdir))
