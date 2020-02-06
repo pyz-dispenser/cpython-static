@@ -3,7 +3,7 @@ debian_task:
     dockerfile: debian.dockerfile
   env:
     matrix:
-      - TAG: v3.8.0
+      - TAG: v3.8.1
       # - TAG: v3.7.5
   checkout_script:
     - git clone --depth 1 --branch $TAG https://github.com/python/cpython.git
@@ -32,7 +32,7 @@ modinfo_task:
   container:
     dockerfile: debian.dockerfile
   env:
-    - TAG: v3.8.0
+    - TAG: v3.8.1
   checkout_script:
     - git clone --depth 1 --branch $TAG https://github.com/python/cpython.git
   build_script: |
