@@ -26,7 +26,10 @@ BLACKLIST = {
     # PEP 594 ("Removing dead batteries from the standard library")
     # recommends removing these.
     # https://www.python.org/dev/peps/pep-0594/
-    'spwd', 'parser', 'audioop', '_crypt', 'ossaudiodev', 'nis'
+    'spwd', 'parser', '_crypt', 'ossaudiodev', 'nis',
+    # audioop is required by the aifc, sunau, wave, sndhdr, and wave modules.
+    # See PEP 594's documentation for more details.
+    # 'audioop',
 }
 
 # Make defaultdict subclass that defaults to getting stuff from pkg-config
