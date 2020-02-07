@@ -27,6 +27,7 @@ grp grpmodule.c
 select selectmodule.c
 mmap mmapmodule.c
 syslog syslogmodule.c
+audioop audioop.c -lm
 _csv _csv.c
 _posixsubprocess _posixsubprocess.c
 _testcapi _testcapimodule.c -UPy_BUILD_CORE -UPy_BUILD_CORE_BUILTIN
