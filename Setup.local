@@ -24,12 +24,9 @@ _statistics _statisticsmodule.c
 fcntl fcntlmodule.c
 pwd pwdmodule.c
 grp grpmodule.c
-spwd spwdmodule.c
 select selectmodule.c
-parser parsermodule.c
 mmap mmapmodule.c
 syslog syslogmodule.c
-audioop audioop.c -lm
 _csv _csv.c
 _posixsubprocess _posixsubprocess.c
 _testcapi _testcapimodule.c -UPy_BUILD_CORE -UPy_BUILD_CORE_BUILTIN
@@ -38,10 +35,9 @@ _testbuffer _testbuffer.c
 _testimportmultiple _testimportmultiple.c
 _testmultiphase _testmultiphase.c
 _xxtestfuzz _xxtestfuzz/_xxtestfuzz.c _xxtestfuzz/fuzzer.c
-readline readline.c -lreadline -L/usr/lib/termcap -lreadline -ltinfo -ltinfo
+readline readline.c -lreadline -L/usr/lib/termcap
 _curses _cursesmodule.c -I/usr/include/ncursesw -DHAVE_NCURSESW -lncursesw -lncursesw -ltinfo -ldl -ltinfo
-_curses_panel _curses_panel.c -I/usr/include/ncursesw -DHAVE_NCURSESW -lpanelw -lncursesw -lpanelw -lncursesw -ltinfo -ldl -lncursesw -ltinfo -ldl -ltinfo -lncursesw -ltinfo -ldl -ltinfo
-_crypt _cryptmodule.c -lcrypt
+_curses_panel _curses_panel.c -I/usr/include/ncursesw -DHAVE_NCURSESW -lpanelw -lncursesw -lpanelw -lncursesw -ltinfo -ldl -ltinfo -lncursesw -ltinfo -ldl -lncursesw -ltinfo -ldl -ltinfo
 _socket socketmodule.c
 _ssl _ssl.c -lssl -lcrypto
 _hashlib _hashopenssl.c -lssl -lcrypto
@@ -55,8 +51,6 @@ _dbm _dbmmodule.c -DHAVE_BERKDB_H -DDB_DBM_HSEARCH -ldb-5.3
 _gdbm _gdbmmodule.c -lgdbm
 termios termios.c
 resource resource.c
-ossaudiodev ossaudiodev.c
-nis nismodule.c -lnsl
 zlib zlibmodule.c -lz
 binascii binascii.c -DUSE_ZLIB_CRC32 -lz
 _bz2 _bz2module.c -lbz2

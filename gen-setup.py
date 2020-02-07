@@ -23,6 +23,10 @@ BLACKLIST = {
     '_sqlite3',  # https://bugs.python.org/issue37839
     '_tkinter',  # conflicts around expat, will come back to it
 
+    # PEP 594 ("Removing dead batteries from the standard library")
+    # recommends removing these.
+    # https://www.python.org/dev/peps/pep-0594/
+    'spwd', 'parser', 'audioop', '_crypt', 'ossaudiodev', 'nis'
 }
 
 # Make defaultdict subclass that defaults to getting stuff from pkg-config
