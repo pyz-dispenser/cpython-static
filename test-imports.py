@@ -15,7 +15,7 @@ import termios
 # Use a native module
 import bz2
 import contextvars
-import crypt
+# import crypt # See https://github.com/pyz-dispenser/cpython-static/pull/1
 import csv
 import ctypes
 import curses
