@@ -7,7 +7,7 @@ import subprocess
 import binascii
 import mmap
 import math
-import parser
+# import parser # See https://github.com/pyz-dispenser/cpython-static/pull/1
 import readline
 import resource
 import termios
