@@ -1,21 +1,16 @@
-# Use a built-in module
 import socket
 import struct
 import subprocess
-
-# Direct native modules
 import binascii
 import mmap
 import math
-# import parser # See https://github.com/pyz-dispenser/cpython-static/pull/1
+# import parser
 import readline
 import resource
 import termios
-
-# Use a native module
 import bz2
 import contextvars
-# import crypt # See https://github.com/pyz-dispenser/cpython-static/pull/1
+# import crypt
 import csv
 import ctypes
 import curses
@@ -31,5 +26,4 @@ import queue
 # import ssl
 # import tkinter
 import uuid
-
-import asyncio  # At the end because it's complex and uses lots of stuff
+import asyncio
