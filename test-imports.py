@@ -1,13 +1,5 @@
-import socket
-import struct
-import subprocess
+import asyncio
 import binascii
-import mmap
-import math
-# import parser
-import readline
-import resource
-import termios
 import bz2
 import contextvars
 # import crypt
@@ -19,11 +11,19 @@ import decimal
 import hashlib
 import json
 import lzma
+import math
+import mmap
 import multiprocessing
 import opcode
+# import parser
 import queue
+import readline
+import resource
+import socket
 # import sqlite3
 # import ssl
+import struct
+import subprocess
+import termios
 # import tkinter
 import uuid
-import asyncio
