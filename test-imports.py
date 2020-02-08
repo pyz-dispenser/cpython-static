@@ -35,7 +35,7 @@ import contextlib
 import contextvars
 import copy
 import copyreg
-# import crypt
+# import crypt  # module not built
 import csv
 import ctypes
 import curses
@@ -105,12 +105,12 @@ import math
 import mimetypes
 import mmap
 import modulefinder
-# import msilib
-# import msvcrt
+# import msilib  # windows only
+# import msvcrt  # windows only
 import multiprocessing
 import multiprocessing.shared_memory
 import netrc
-# import nis
+# import nis  # module not built
 import nntplib
 import numbers
 import opcode
@@ -118,8 +118,8 @@ import operator
 import optparse
 import os
 import os.path
-# import ossaudiodev
-# import parser
+# import ossaudiodev  # module not built
+# import parser  # module not built
 import pathlib
 import pdb
 import pickle
@@ -161,8 +161,8 @@ import smtplib
 import sndhdr
 import socket
 import socketserver
-# import spwd
-# import sqlite3
+# import spwd  # module not built
+# import sqlite3  # module not built
 import ssl
 import stat
 import statistics
@@ -189,7 +189,7 @@ import threading
 import threading
 import time
 import timeit
-# import tkinter
+# import tkinter  # tkinter module not built
 # import tkinter.scrolledtext
 # import tkinter.tix
 # import tkinter.ttk
@@ -199,7 +199,7 @@ import trace
 import traceback
 import tracemalloc
 import tty
-# import turtle
+# import turtle  # relies on tkinter
 import types
 import typing
 import unicodedata
@@ -219,8 +219,8 @@ import warnings
 import wave
 import weakref
 import webbrowser
-# import winreg
-# import winsound
+# import winreg  # windows only
+# import winsound  # windows only
 import wsgiref
 import xdrlib
 import xml.dom
