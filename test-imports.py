@@ -45,6 +45,9 @@ import curses.textpad
 import dataclasses
 import datetime
 import dbm
+import dbm.dumb
+import dbm.gnu
+import dbm.ndbm
 import decimal
 import difflib
 import dis
@@ -52,6 +55,89 @@ import distutils
 import doctest
 import dummy_threading
 import email
+import email.base64mime
+import email.charset
+import email.contentmanager
+import email.encoders
+import email.errors
+import email.feedparser
+import email.generator
+import email.header
+import email.headerregistry
+import email.iterators
+import email.message
+import email.mime
+import email.mime.application
+import email.mime.audio
+import email.mime.base
+import email.mime.image
+import email.mime.message
+import email.mime.multipart
+import email.mime.nonmultipart
+import email.mime.text
+import email.parser
+import email.policy
+import email.quoprimime
+import email.utils
+import encodings
+import encodings.aliases
+import encodings.ascii
+import encodings.big5
+import encodings.big5hkscs
+import encodings.charmap
+import encodings.cp037
+import encodings.cp1006
+import encodings.cp1026
+import encodings.cp1125
+import encodings.cp1140
+import encodings.cp1250
+import encodings.cp1251
+import encodings.cp1252
+import encodings.cp1253
+import encodings.cp1254
+import encodings.cp1255
+import encodings.cp1256
+import encodings.cp1257
+import encodings.cp1258
+import encodings.cp273
+import encodings.cp424
+import encodings.cp437
+import encodings.cp500
+import encodings.cp720
+import encodings.cp737
+import encodings.cp775
+import encodings.cp850
+import encodings.cp852
+import encodings.cp855
+import encodings.cp856
+import encodings.cp857
+import encodings.cp858
+import encodings.cp860
+import encodings.cp861
+import encodings.cp862
+import encodings.cp863
+import encodings.cp864
+import encodings.cp865
+import encodings.cp866
+import encodings.cp869
+import encodings.cp874
+import encodings.cp875
+import encodings.cp932
+import encodings.cp949
+import encodings.cp950
+import encodings.gb18030
+import encodings.gb2312
+import encodings.gbk
+import encodings.hz
+import encodings.idna
+import encodings.johab
+import encodings.kz1048
+# import encodings.mbcs  # Windows only
+# import encodings.oem  # Windows only
+import encodings.palmos
+import encodings.ptcp154
+import encodings.punycode
+import encodings.undefined
 import ensurepip
 import enum
 import errno
@@ -91,7 +177,12 @@ import io
 import ipaddress
 import itertools
 import json
+import json.decoder
+import json.encoder
+import json.scanner
+import json.tool
 import keyword
+# import lib2to3
 import linecache
 import locale
 import logging
@@ -108,10 +199,26 @@ import modulefinder
 # import msilib  # windows only
 # import msvcrt  # windows only
 import multiprocessing
+import multiprocessing.connection
+import multiprocessing.context
+import multiprocessing.dummy
+import multiprocessing.dummy.connection
+# import multiprocessing.forkserver  # no _multiprocessing.sem_unlink
+import multiprocessing.heap
+import multiprocessing.managers
+import multiprocessing.pool
+import multiprocessing.process
+import multiprocessing.queues
+import multiprocessing.reduction
 import multiprocessing.shared_memory
+import multiprocessing.sharedctypes
+import multiprocessing.spawn
+# import multiprocessing.synchronize  # no sem_open implementation
 import netrc
 # import nis  # module not built
 import nntplib
+import ntpath
+import nturl2path
 import numbers
 import opcode
 import operator
@@ -132,6 +239,8 @@ import plistlib
 import poplib
 import posix
 import pprint
+import profile
+import pstats
 import pty
 import pwd
 import py_compile
@@ -185,6 +294,7 @@ import termios
 # import test.support
 # import test.support.script_helper
 import textwrap
+# import this  # just prints stuff to stdout.
 import threading
 import threading
 import time
@@ -222,13 +332,32 @@ import webbrowser
 # import winreg  # windows only
 # import winsound  # windows only
 import wsgiref
+import wsgiref.handlers
+import wsgiref.headers
+import wsgiref.util
+import wsgiref.validate
 import xdrlib
+import xml
 import xml.dom
+import xml.dom.domreg
+import xml.dom.expatbuilder
+import xml.dom.minicompat
 import xml.dom.minidom
+import xml.dom.NodeFilter
 import xml.dom.pulldom
+import xml.dom.xmlbuilder
+import xml.etree
+import xml.etree.cElementTree
+import xml.etree.ElementInclude
+import xml.etree.ElementPath
 import xml.etree.ElementTree
+import xml.parsers
 import xml.parsers.expat
+import xmlrpc
+import xmlrpc.client
+import xmlrpc.server
 import xml.sax
+import xml.sax.expatreader
 import xml.sax.handler
 import xml.sax.saxutils
 import xml.sax.xmlreader
