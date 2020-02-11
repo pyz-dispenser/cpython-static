@@ -7,6 +7,10 @@ debian_task:
       # - TAG: v3.7.5
   checkout_script:
     - git clone --depth 1 --branch $TAG https://github.com/python/cpython.git
+  delete_disabled_module_tests_script:
+    # These are the tests for modules included in PEP 594 ("Removing dead batteries")
+    # that aren't native Python. These are also disabled in gen-setup.py.
+    - cd cpython/Lib/test/ && rm test_spwd.py test_parser.py test_crypt.py test_ossaudiodev.py test_nis.py
   build_script: |
     cp Setup.local cpython/Modules/Setup.local
     cd cpython
